@@ -1,6 +1,7 @@
 [client]
-database = hackerearth
 user = ayushbisht200121
 password = Hacker@123
+name = ayushbisht200121$hackerearth
+host = ayushbisht200121.mysql.pythonanywhere-services.com
 default-character-set = utf8
 
