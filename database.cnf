@@ -1,0 +1,6 @@
+[client]
+database = hackerearth
+user = hacker
+password = Hacker@123
+default-character-set = utf8
+

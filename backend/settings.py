@@ -15,7 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-URL = ""
+URL = "sd"
 # URL = "myusername-667.postgres.pythonanywhere-services.com"
 
 # Quick-start development settings - unsuitable for production
@@ -94,12 +94,17 @@ CORS_ORIGIN_ALLOW_ALL = True
 if URL:
     DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'covid',
-        'USER': 'coviduser',
-        'PASSWORD': 'coviduser19',
-        'HOST': URL,
-        'PORT': '5432',
+        # 'ENGINE': 'django.db.backends.mysql',
+
+        # 'OPTIONS': {
+        #     'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
+        # },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hackerearth',
+        'USER': 'hacker',
+        'PASSWORD': 'Hacker@123',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 else:
