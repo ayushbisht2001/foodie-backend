@@ -72,8 +72,8 @@ def run_seed(self, mode):
     :param mode: refresh / clear 
     :return:
     """
-    restaurant = pd.read_csv(r"C:/Users/hp/Desktop/HE/backend/backend/restaurant/management/commands/restaurant.csv")
-    address = pd.read_csv(r"C:/Users/hp/Desktop/HE/backend/backend/restaurant/management/commands/address.csv")
+    restaurant = pd.read_csv(r"restaurant.csv")
+    address = pd.read_csv(r"address.csv")
     df = restaurant.merge(address, on = "Restaurant ID")
     # Clear data from tables
     clear_data()
