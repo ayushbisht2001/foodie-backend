@@ -94,17 +94,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 if URL:
     DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-
-        # 'OPTIONS': {
-        #     'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
-        # },
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hackerearth',
-        'USER': 'hacker',
-        'PASSWORD': 'Hacker@123',
-        'HOST': 'localhost',
-        'PORT': '3306',
+
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
+        },
+  
     }
 }
 else:
