@@ -1,7 +1,7 @@
 # Setup Guide for foodie-backend
 
 ## Getting Project
-    git clone 
+    git clone https://github.com/ayushbisht2001/foodie-backend.git
 
 
 ## Creating virtual environment
