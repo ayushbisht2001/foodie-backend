@@ -3,6 +3,10 @@ from numpy import add
 import pandas as pd
 from pandas.io.sql import has_table
 from restaurant.models import *
+from django.conf import settings
+import os
+
+
 
 MODE_REFRESH = 'refresh'
 MODE_CLEAR = 'clear'
@@ -29,10 +33,13 @@ def create_restaurants(row):
     row = dict(row)
     # logger.info("Creating Restaurants")
     cus_lis = []
-    for cui in row["cuisines"].split(','):
-        c = Cuisines(title = cui)
-        c.save()
-        cus_lis.append(c)
+    try:
+        for cui in row["cuisines"].split(','):
+            c = Cuisines(title = cui)
+            c.save()
+            cus_lis.append(c)
+    except:
+        print("nan")
 
     add_payload = {
         "city" : row.get("city"),
@@ -72,8 +79,11 @@ def run_seed(self, mode):
     :param mode: refresh / clear 
     :return:
     """
-    restaurant = pd.read_csv("./restaurant.csv")
-    address = pd.read_csv("./address.csv")
+    r_path = os.path.join(settings.BASE_DIR,'static/restaurant.csv')
+    a_path = os.path.join(settings.BASE_DIR,'static/address.csv')
+
+    restaurant = pd.read_csv(r_path)
+    address = pd.read_csv(a_path)
     df = restaurant.merge(address, on = "Restaurant ID")
     # Clear data from tables
     clear_data()
