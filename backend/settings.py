@@ -94,12 +94,16 @@ CORS_ORIGIN_ALLOW_ALL = True
 if URL:
     DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.mysql',
 
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
-        },
-  
+        # 'OPTIONS': {
+        #     'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
+        # },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ayushbisht200121$hackerearth',
+        'USER': 'ayushbisht200121',
+        'PASSWORD': 'Hacker@123',
+        'HOST': 'ayushbisht200121.mysql.pythonanywhere-services.com',
     }
 }
 else:
