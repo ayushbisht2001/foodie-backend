@@ -15,7 +15,12 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-URL = "sd"
+
+# DB_TYPE = "sqlite"
+DB_TYPE = "MySQL"
+# DB_TYPE = "Deploy"
+
+
 # URL = "myusername-667.postgres.pythonanywhere-services.com"
 
 # Quick-start development settings - unsuitable for production
@@ -91,14 +96,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 
-if URL:
+if DB_TYPE == "deploy":
     DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-
-        # 'OPTIONS': {
-        #     'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
-        # },
+        
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ayushbisht200121$hackerearth',
         'USER': 'ayushbisht200121',
@@ -106,11 +107,22 @@ if URL:
         'HOST': 'ayushbisht200121.mysql.pythonanywhere-services.com',
     }
 }
-else:
+elif DB_TYPE == "sqlite":
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+else:
+      DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'database.cnf'),
+        },
+      
     }
 }
 # Password validation
